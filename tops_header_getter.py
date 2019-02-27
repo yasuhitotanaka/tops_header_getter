@@ -26,13 +26,15 @@ if search_keyword:
     parce_result = bs4.BeautifulSoup(request_from_google.text, 'html.parser')
     links = parce_result.select('div > h3.r > a')
     
+    j = 0
     for i in range(len(links)):
         url = links[i].get('href').split('&sq=U&')[0].replace('/url?q=', '')
         title = parce_result.select('div > h3.r > a')[i].text
-        header = parce_result.select('div > span.st')[i-1].text
         if 'https://' in url or 'http://' in url:
             try:
+                header = parce_result.select('div > span.st')[j].text
                 print('{}位: {}, URL: {}, 見出し: {}'.format(i, title, url, header))
+                j += 1
             except:
                 continue
 print("OK")
