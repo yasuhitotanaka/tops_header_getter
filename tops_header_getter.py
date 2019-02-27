@@ -18,7 +18,7 @@ if len(sys.argv) > 1:
 print('検索ワード {}'.format(search_keyword))
 
 if search_keyword:
-    search_url = 'https://www.google.co.jp/search?hl=ja&num=' + TOP_NUMBER + '&q=' + search_keyword
+    search_url = 'https://www.google.co.jp/search?hl=ja&num=' + str(TOP_NUMBER) + '&q=' + search_keyword
     print("Access to Google was succeed!")
     request_from_google = requests.get(search_url)
     print("Getting search results is succeed!")
