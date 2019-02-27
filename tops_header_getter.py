@@ -3,9 +3,7 @@ import requests
 import bs4
 import csv
 import datetime
-
-# Define number of articles which this script will get 
-TOP_NUMBER = 10
+from config.setting import TOP_NUMBER
 
 search_keyword = ""
 
